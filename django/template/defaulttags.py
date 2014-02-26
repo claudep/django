@@ -9,6 +9,7 @@ from itertools import groupby, cycle as itertools_cycle
 import warnings
 
 from django.conf import settings
+from django.core.exceptions import RemovedInDjango18Warning
 from django.template.base import (Node, NodeList, Template, Context, Library,
     TemplateSyntaxError, VariableDoesNotExist, InvalidTemplateLibrary,
     BLOCK_TAG_START, BLOCK_TAG_END, VARIABLE_TAG_START, VARIABLE_TAG_END,
@@ -595,7 +596,7 @@ def cycle(parser, token, escape=False):
             "'The `cycle` template tag is changing to escape its arguments; "
             "the non-autoescaping version is deprecated. Load it "
             "from the `future` tag library to start using the new behavior.",
-            DeprecationWarning, stacklevel=2)
+            RemovedInDjango18Warning, stacklevel=2)
 
     # Note: This returns the exact same node on each {% cycle name %} call;
     # that is, the node object returned from {% cycle a b c as name %} and the
@@ -743,7 +744,7 @@ def firstof(parser, token, escape=False):
             "'The `firstof` template tag is changing to escape its arguments; "
             "the non-autoescaping version is deprecated. Load it "
             "from the `future` tag library to start using the new behavior.",
-            DeprecationWarning, stacklevel=2)
+            RemovedInDjango18Warning, stacklevel=2)
 
     bits = token.split_contents()[1:]
     if len(bits) < 1:

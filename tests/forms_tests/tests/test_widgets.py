@@ -6,6 +6,7 @@ import datetime
 import warnings
 
 from django.contrib.admin.tests import AdminSeleniumWebDriverTestCase
+from django.core.exceptions import RemovedInDjango19Warning
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.urlresolvers import reverse
 from django.forms import (
@@ -1094,7 +1095,7 @@ class WidgetTests(TestCase):
             field = DateTimeField(widget=SplitDateTimeWidget, required=False)
 
         with warnings.catch_warnings():
-            warnings.filterwarnings("ignore", category=PendingDeprecationWarning)
+            warnings.filterwarnings("ignore", category=RemovedInDjango19Warning)
             form = SplitDateForm({'field': ''})
             self.assertTrue(form.is_valid())
             form = SplitDateForm({'field': ['', '']})
@@ -1104,7 +1105,7 @@ class WidgetTests(TestCase):
             field = DateTimeField(widget=SplitDateTimeWidget, required=True)
 
         with warnings.catch_warnings():
-            warnings.filterwarnings("ignore", category=PendingDeprecationWarning)
+            warnings.filterwarnings("ignore", category=RemovedInDjango19Warning)
             form = SplitDateRequiredForm({'field': ''})
             self.assertFalse(form.is_valid())
             form = SplitDateRequiredForm({'field': ['', '']})

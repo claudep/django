@@ -7,6 +7,7 @@ import warnings
 
 from django.apps import apps
 from django.conf import settings
+from django.core.exceptions import RemovedInDjango19Warning
 from django.core.management.base import CommandError
 from django.db import models, router
 from django.utils import six
@@ -179,7 +180,7 @@ def custom_sql_for_model(model, style, connection):
     if os.path.exists(old_app_dir):
         warnings.warn("Custom SQL location '<app_label>/models/sql' is "
                       "deprecated, use '<app_label>/sql' instead.",
-                      PendingDeprecationWarning)
+                      RemovedInDjango19Warning)
         app_dirs.append(old_app_dir)
 
     output = []

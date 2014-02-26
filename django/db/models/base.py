@@ -11,7 +11,8 @@ import django.db.models.manager  # NOQA: Imported to register signal handler.
 from django.conf import settings
 from django.core import checks
 from django.core.exceptions import (ObjectDoesNotExist,
-    MultipleObjectsReturned, FieldError, ValidationError, NON_FIELD_ERRORS)
+    MultipleObjectsReturned, FieldError, ValidationError, NON_FIELD_ERRORS,
+    RemovedInDjango19Warning)
 from django.db.models.fields import AutoField, FieldDoesNotExist
 from django.db.models.fields.related import (ForeignObjectRel, ManyToOneRel,
     OneToOneField, add_lazy_relation)
@@ -114,7 +115,7 @@ class ModelBase(type):
                     msg += "Its app_label will be set to None in Django 1.9."
                 else:
                     msg += "This will no longer be supported in Django 1.9."
-                warnings.warn(msg, PendingDeprecationWarning, stacklevel=2)
+                warnings.warn(msg, RemovedInDjango19Warning, stacklevel=2)
 
                 model_module = sys.modules[new_class.__module__]
                 package_components = model_module.__name__.split('.')

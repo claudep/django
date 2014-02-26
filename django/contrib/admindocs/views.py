@@ -10,7 +10,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.admin.views.decorators import staff_member_required
 from django.db import models
-from django.core.exceptions import ViewDoesNotExist
+from django.core.exceptions import ViewDoesNotExist, RemovedInDjango18Warning
 from django.http import Http404
 from django.core import urlresolvers
 from django.contrib.admindocs import utils
@@ -25,7 +25,7 @@ MODEL_METHODS_EXCLUDE = ('_', 'add_', 'delete', 'save', 'set_')
 
 if getattr(settings, 'ADMIN_FOR', None):
     warnings.warn('The ADMIN_FOR setting has been removed, you can remove '
-                  'this setting from your configuration.', DeprecationWarning,
+                  'this setting from your configuration.', RemovedInDjango18Warning,
                   stacklevel=2)
 
 

@@ -18,7 +18,9 @@ from django.contrib.admin.templatetags.admin_static import static
 from django.contrib.admin.templatetags.admin_urls import add_preserved_filters
 from django.contrib.auth import get_permission_codename
 from django.core import checks
-from django.core.exceptions import PermissionDenied, ValidationError, FieldError, ImproperlyConfigured
+from django.core.exceptions import (PermissionDenied, ValidationError,
+    FieldError, ImproperlyConfigured, RemovedInDjango18Warning,
+    RemovedInDjango19Warning)
 from django.core.paginator import Paginator
 from django.core.urlresolvers import reverse
 from django.db import models, transaction, router
@@ -93,7 +95,7 @@ csrf_protect_m = method_decorator(csrf_protect)
 
 class RenameBaseModelAdminMethods(forms.MediaDefiningClass, RenameMethodsBase):
     renamed_methods = (
-        ('queryset', 'get_queryset', DeprecationWarning),
+        ('queryset', 'get_queryset', RemovedInDjango18Warning),
     )
 
 
@@ -125,7 +127,7 @@ class BaseModelAdmin(six.with_metaclass(RenameBaseModelAdminMethods)):
     def validate(cls, model):
         warnings.warn(
             'ModelAdmin.validate() is deprecated. Use "check()" instead.',
-            PendingDeprecationWarning)
+            RemovedInDjango19Warning)
         if cls.validator_class:
             validator = cls.validator_class()
         else:
@@ -139,7 +141,7 @@ class BaseModelAdmin(six.with_metaclass(RenameBaseModelAdminMethods)):
                 'ModelAdmin.validator_class is deprecated. '
                 'ModeAdmin validators must be converted to use '
                 'the system check framework.',
-                PendingDeprecationWarning)
+                RemovedInDjango19Warning)
             validator = cls.validator_class()
             try:
                 validator.validate(cls, model)
@@ -306,7 +308,7 @@ class BaseModelAdmin(six.with_metaclass(RenameBaseModelAdminMethods)):
         warnings.warn(
             "ModelAdmin.declared_fieldsets is deprecated and "
             "will be removed in Django 1.9.",
-            PendingDeprecationWarning, stacklevel=2
+            RemovedInDjango19Warning, stacklevel=2
         )
 
         if self.fieldsets:
@@ -332,11 +334,11 @@ class BaseModelAdmin(six.with_metaclass(RenameBaseModelAdminMethods)):
         with warnings.catch_warnings(record=True) as w:
             warnings.simplefilter("always")
             declared_fieldsets = self.declared_fieldsets
-        if len(w) != 1 or not issubclass(w[0].category, PendingDeprecationWarning):
+        if len(w) != 1 or not issubclass(w[0].category, RemovedInDjango19Warning):
             warnings.warn(
                 "ModelAdmin.declared_fieldsets is deprecated and "
                 "will be removed in Django 1.9.",
-                PendingDeprecationWarning
+                RemovedInDjango19Warning
             )
             if declared_fieldsets:
                 return declared_fieldsets
@@ -695,7 +697,7 @@ class ModelAdmin(BaseModelAdmin):
         warnings.warn(
             "ModelAdmin.get_formsets() is deprecated and will be removed in "
             "Django 1.9. Use ModelAdmin.get_formsets_with_inlines() instead.",
-            PendingDeprecationWarning, stacklevel=2
+            RemovedInDjango19Warning, stacklevel=2
         )
         return self._get_formsets(request, obj)
 
@@ -711,11 +713,11 @@ class ModelAdmin(BaseModelAdmin):
             warnings.simplefilter("always")
             formsets = self.get_formsets(request, obj)
 
-        if len(w) != 1 or not issubclass(w[0].category, PendingDeprecationWarning):
+        if len(w) != 1 or not issubclass(w[0].category, RemovedInDjango19Warning):
             warnings.warn(
                 "ModelAdmin.get_formsets() is deprecated and will be removed in "
                 "Django 1.9. Use ModelAdmin.get_formsets_with_inlines() instead.",
-                PendingDeprecationWarning
+                RemovedInDjango19Warning
             )
             if formsets:
                 zipped = zip(formsets, self.get_inline_instances(request, None))

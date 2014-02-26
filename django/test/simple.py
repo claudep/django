@@ -10,6 +10,7 @@ import unittest as real_unittest
 import warnings
 
 from django.apps import apps
+from django.core.exceptions import RemovedInDjango18Warning
 from django.test import _doctest as doctest
 from django.test import runner
 from django.test.utils import compare_xml, strip_quotes
@@ -23,7 +24,7 @@ __all__ = ('DjangoTestSuiteRunner',)
 warnings.warn(
     "The django.test.simple module and DjangoTestSuiteRunner are deprecated; "
     "use django.test.runner.DiscoverRunner instead.",
-    DeprecationWarning)
+    RemovedInDjango18Warning)
 
 # The module name for tests outside models.py
 TEST_MODULE = 'tests'

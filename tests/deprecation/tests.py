@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 import warnings
 
+from django.core.exceptions import RemovedInDjango18Warning
 from django.test import SimpleTestCase, RequestFactory, override_settings
 from django.utils import six, translation
 from django.utils.deprecation import RenameMethodsBase
@@ -9,7 +10,7 @@ from django.utils.functional import memoize
 
 class RenameManagerMethods(RenameMethodsBase):
     renamed_methods = (
-        ('old', 'new', DeprecationWarning),
+        ('old', 'new', RemovedInDjango18Warning),
     )
 
 

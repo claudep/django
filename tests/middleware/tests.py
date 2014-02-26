@@ -10,6 +10,7 @@ import warnings
 
 from django.conf import settings
 from django.core import mail
+from django.core.exceptions import RemovedInDjango18Warning
 from django.db import (transaction, connections, DEFAULT_DB_ALIAS,
                        IntegrityError)
 from django.http import HttpRequest, HttpResponse, StreamingHttpResponse
@@ -249,7 +250,7 @@ class CommonMiddlewareTest(TestCase):
         request = self._get_request('regular_url/that/does/not/exist')
         request.META['HTTP_REFERER'] = '/another/url/'
         with warnings.catch_warnings():
-            warnings.simplefilter("ignore", DeprecationWarning)
+            warnings.simplefilter("ignore", RemovedInDjango18Warning)
             response = self.client.get(request.path)
             CommonMiddleware().process_response(request, response)
         self.assertEqual(len(mail.outbox), 1)
@@ -261,7 +262,7 @@ class CommonMiddlewareTest(TestCase):
     def test_404_error_reporting_no_referer(self):
         request = self._get_request('regular_url/that/does/not/exist')
         with warnings.catch_warnings():
-            warnings.simplefilter("ignore", DeprecationWarning)
+            warnings.simplefilter("ignore", RemovedInDjango18Warning)
             response = self.client.get(request.path)
             CommonMiddleware().process_response(request, response)
         self.assertEqual(len(mail.outbox), 0)
@@ -273,7 +274,7 @@ class CommonMiddlewareTest(TestCase):
         request = self._get_request('foo_url/that/does/not/exist/either')
         request.META['HTTP_REFERER'] = '/another/url/'
         with warnings.catch_warnings():
-            warnings.simplefilter("ignore", DeprecationWarning)
+            warnings.simplefilter("ignore", RemovedInDjango18Warning)
             response = self.client.get(request.path)
             CommonMiddleware().process_response(request, response)
         self.assertEqual(len(mail.outbox), 0)

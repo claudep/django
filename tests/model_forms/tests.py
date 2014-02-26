@@ -7,7 +7,7 @@ from unittest import skipUnless
 import warnings
 
 from django import forms
-from django.core.exceptions import FieldError, NON_FIELD_ERRORS
+from django.core.exceptions import FieldError, NON_FIELD_ERRORS, RemovedInDjango18Warning
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.validators import ValidationError
 from django.db import connection
@@ -265,7 +265,7 @@ class ModelFormBaseTest(TestCase):
 
     def test_missing_fields_attribute(self):
         with warnings.catch_warnings(record=True):
-            warnings.simplefilter("always", DeprecationWarning)
+            warnings.simplefilter("always", RemovedInDjango18Warning)
 
             class MissingFieldsForm(forms.ModelForm):
                 class Meta:
@@ -275,7 +275,7 @@ class ModelFormBaseTest(TestCase):
         # if a warning has been seen already, the catch_warnings won't
         # have recorded it. The following line therefore will not work reliably:
 
-        # self.assertEqual(w[0].category, DeprecationWarning)
+        # self.assertEqual(w[0].category, RemovedInDjango18Warning)
 
         # Until end of the deprecation cycle, should still create the
         # form as before:

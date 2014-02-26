@@ -6,6 +6,7 @@ import warnings
 
 from django.apps import apps
 from django.conf import settings
+from django.core.exceptions import RemovedInDjango18Warning
 from django.db.models.fields.related import ManyToManyRel
 from django.db.models.fields import AutoField, FieldDoesNotExist
 from django.db.models.fields.proxy import OrderWrt
@@ -166,7 +167,7 @@ class Options(object):
         """
         warnings.warn(
             "Options.module_name has been deprecated in favor of model_name",
-            DeprecationWarning, stacklevel=2)
+            RemovedInDjango18Warning, stacklevel=2)
         return self.model_name
 
     def _prepare(self, model):
@@ -459,7 +460,7 @@ class Options(object):
         warnings.warn(
             "`Options.get_add_permission` has been deprecated in favor "
             "of `django.contrib.auth.get_permission_codename`.",
-            DeprecationWarning, stacklevel=2)
+            RemovedInDjango18Warning, stacklevel=2)
         return 'add_%s' % self.model_name
 
     def get_change_permission(self):
@@ -470,7 +471,7 @@ class Options(object):
         warnings.warn(
             "`Options.get_change_permission` has been deprecated in favor "
             "of `django.contrib.auth.get_permission_codename`.",
-            DeprecationWarning, stacklevel=2)
+            RemovedInDjango18Warning, stacklevel=2)
         return 'change_%s' % self.model_name
 
     def get_delete_permission(self):
@@ -481,7 +482,7 @@ class Options(object):
         warnings.warn(
             "`Options.get_delete_permission` has been deprecated in favor "
             "of `django.contrib.auth.get_permission_codename`.",
-            DeprecationWarning, stacklevel=2)
+            RemovedInDjango18Warning, stacklevel=2)
         return 'delete_%s' % self.model_name
 
     def get_all_related_objects(self, local_only=False, include_hidden=False,

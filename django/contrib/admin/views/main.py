@@ -2,7 +2,8 @@ from collections import OrderedDict
 import sys
 import warnings
 
-from django.core.exceptions import SuspiciousOperation, ImproperlyConfigured
+from django.core.exceptions import (SuspiciousOperation, ImproperlyConfigured,
+    RemovedInDjango18Warning)
 from django.core.paginator import InvalidPage
 from django.core.urlresolvers import reverse
 from django.db import models
@@ -51,7 +52,7 @@ def _is_changelist_popup(request):
         warnings.warn(
             "The `%s` GET parameter has been renamed to `%s`." %
             (IS_LEGACY_POPUP_VAR, IS_POPUP_VAR),
-            DeprecationWarning, 2)
+            RemovedInDjango18Warning, 2)
         return True
 
     return False
@@ -59,7 +60,7 @@ def _is_changelist_popup(request):
 
 class RenameChangeListMethods(RenameMethodsBase):
     renamed_methods = (
-        ('get_query_set', 'get_queryset', DeprecationWarning),
+        ('get_query_set', 'get_queryset', RemovedInDjango18Warning),
     )
 
 
@@ -114,14 +115,14 @@ class ChangeList(six.with_metaclass(RenameChangeListMethods)):
     def root_query_set(self):
         warnings.warn("`ChangeList.root_query_set` is deprecated, "
                       "use `root_queryset` instead.",
-                      DeprecationWarning, 2)
+                      RemovedInDjango18Warning, 2)
         return self.root_queryset
 
     @property
     def query_set(self):
         warnings.warn("`ChangeList.query_set` is deprecated, "
                       "use `queryset` instead.",
-                      DeprecationWarning, 2)
+                      RemovedInDjango18Warning, 2)
         return self.queryset
 
     def get_filters_params(self, params=None):

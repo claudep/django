@@ -2,7 +2,8 @@ from functools import wraps
 import sys
 import warnings
 
-from django.core.exceptions import ObjectDoesNotExist, ImproperlyConfigured  # NOQA
+from django.core.exceptions import (  # NOQA
+    ObjectDoesNotExist, ImproperlyConfigured, RemovedInDjango19Warning)
 from django.db.models.query import Q, QuerySet, Prefetch  # NOQA
 from django.db.models.expressions import F  # NOQA
 from django.db.models.manager import Manager  # NOQA
@@ -47,7 +48,7 @@ def make_alias(function_name):
     def alias(*args, **kwargs):
         warnings.warn(
             "django.db.models.%s is deprecated." % function_name,
-            PendingDeprecationWarning, stacklevel=2)
+            RemovedInDjango19Warning, stacklevel=2)
         # This raises a second warning.
         from . import loading
         return getattr(loading, function_name)(*args, **kwargs)

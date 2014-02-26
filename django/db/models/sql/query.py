@@ -29,7 +29,7 @@ from django.db.models.sql.datastructures import EmptyResultSet, Empty, MultiJoin
 from django.db.models.sql.expressions import SQLEvaluator
 from django.db.models.sql.where import (WhereNode, Constraint, EverythingNode,
     ExtraWhere, AND, OR, EmptyWhere)
-from django.core.exceptions import FieldError
+from django.core.exceptions import FieldError, RemovedInDjango19Warning
 
 __all__ = ['Query', 'RawQuery']
 
@@ -1043,7 +1043,7 @@ class Query(object):
         elif callable(value):
             warnings.warn(
                 "Passing callable arguments to queryset is deprecated.",
-                PendingDeprecationWarning, stacklevel=2)
+                RemovedInDjango19Warning, stacklevel=2)
             value = value()
         elif isinstance(value, ExpressionNode):
             # If value is a query expression, evaluate it

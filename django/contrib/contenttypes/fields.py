@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from collections import defaultdict
 
 from django.core import checks
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, RemovedInDjango18Warning
 from django.db import connection
 from django.db import models, router, transaction, DEFAULT_DB_ALIAS
 from django.db.models import signals, FieldDoesNotExist
@@ -19,7 +19,7 @@ from django.utils.encoding import smart_text, python_2_unicode_compatible
 
 class RenameGenericForeignKeyMethods(RenameMethodsBase):
     renamed_methods = (
-        ('get_prefetch_query_set', 'get_prefetch_queryset', DeprecationWarning),
+        ('get_prefetch_query_set', 'get_prefetch_queryset', RemovedInDjango18Warning),
     )
 
 

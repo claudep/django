@@ -1,5 +1,6 @@
 import warnings
 
+from django.core.exceptions import RemovedInDjango19Warning
 from django.core.management.base import BaseCommand
 
 
@@ -10,7 +11,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         warnings.warn(
             "FastCGI support has been deprecated and will be removed in Django 1.9.",
-            PendingDeprecationWarning)
+            RemovedInDjango19Warning)
 
         from django.conf import settings
         from django.utils import translation

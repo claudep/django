@@ -3,6 +3,7 @@ Module for abstract serializer/unserializer base classes.
 """
 import warnings
 
+from django.core.exceptions import RemovedInDjango19Warning
 from django.db import models
 from django.utils import six
 
@@ -42,7 +43,7 @@ class Serializer(object):
         self.use_natural_keys = options.pop("use_natural_keys", False)
         if self.use_natural_keys:
             warnings.warn("``use_natural_keys`` is deprecated; use ``use_natural_foreign_keys`` instead.",
-                PendingDeprecationWarning)
+                RemovedInDjango19Warning)
         self.use_natural_foreign_keys = options.pop('use_natural_foreign_keys', False) or self.use_natural_keys
         self.use_natural_primary_keys = options.pop('use_natural_primary_keys', False)
 

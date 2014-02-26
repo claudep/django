@@ -6,7 +6,7 @@ import unittest
 import warnings
 from zipimport import zipimporter
 
-from django.core.exceptions import ImproperlyConfigured
+from django.core.exceptions import ImproperlyConfigured, RemovedInDjango19Warning
 from django.test import SimpleTestCase, modify_settings
 from django.test.utils import IgnorePendingDeprecationWarningsMixin, extend_sys_path
 from django.utils import six
@@ -134,11 +134,11 @@ class ModuleImportTestCase(IgnorePendingDeprecationWarningsMixin, unittest.TestC
 
     def test_import_by_path_pending_deprecation_warning(self):
         with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter('always', category=PendingDeprecationWarning)
+            warnings.simplefilter('always', category=RemovedInDjango19Warning)
             cls = import_by_path('django.utils.module_loading.import_by_path')
             self.assertEqual(cls, import_by_path)
             self.assertEqual(len(w), 1)
-            self.assertTrue(issubclass(w[-1].category, PendingDeprecationWarning))
+            self.assertTrue(issubclass(w[-1].category, RemovedInDjango19Warning))
             self.assertIn('deprecated', str(w[-1].message))
 
     def test_import_string(self):

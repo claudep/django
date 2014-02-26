@@ -12,7 +12,7 @@ from django.contrib.admin.validation import ModelAdminValidator
 from django.contrib.admin import (SimpleListFilter,
      BooleanFieldListFilter)
 from django.core.checks import Error
-from django.core.exceptions import ImproperlyConfigured
+from django.core.exceptions import ImproperlyConfigured, RemovedInDjango19Warning
 from django.forms.models import BaseModelFormSet
 from django.forms.widgets import Select
 from django.test import TestCase
@@ -1465,7 +1465,7 @@ class CustomModelAdminTests(CheckTestCase):
     def test_deprecation(self):
         "Deprecated Custom Validator definitions still work with the check framework."
         with warnings.catch_warnings():
-            warnings.simplefilter("ignore", category=PendingDeprecationWarning)
+            warnings.simplefilter("ignore", category=RemovedInDjango19Warning)
 
             class CustomValidator(ModelAdminValidator):
                 def validate_me(self, model_admin, model):

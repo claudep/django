@@ -3,6 +3,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.contrib import comments
+from django.core.exceptions import RemovedInDjango18Warning
 from django.utils import six
 from django.utils.deprecation import RenameMethodsBase
 from django.utils.encoding import smart_text
@@ -12,7 +13,7 @@ register = template.Library()
 
 class RenameBaseCommentNodeMethods(RenameMethodsBase):
     renamed_methods = (
-        ('get_query_set', 'get_queryset', DeprecationWarning),
+        ('get_query_set', 'get_queryset', RemovedInDjango18Warning),
     )
 
 

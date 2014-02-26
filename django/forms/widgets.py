@@ -9,6 +9,7 @@ from itertools import chain
 import warnings
 
 from django.conf import settings
+from django.core.exceptions import RemovedInDjango18Warning
 from django.forms.utils import flatatt, to_current_timezone
 from django.utils.datastructures import MultiValueDict, MergeDict
 from django.utils.html import conditional_escape, format_html
@@ -626,7 +627,7 @@ class RadioChoiceInput(ChoiceInput):
 class RadioInput(RadioChoiceInput):
     def __init__(self, *args, **kwargs):
         msg = "RadioInput has been deprecated. Use RadioChoiceInput instead."
-        warnings.warn(msg, DeprecationWarning, stacklevel=2)
+        warnings.warn(msg, RemovedInDjango18Warning, stacklevel=2)
         super(RadioInput, self).__init__(*args, **kwargs)
 
 

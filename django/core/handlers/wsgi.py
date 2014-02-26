@@ -11,6 +11,7 @@ import warnings
 from django import http
 from django.conf import settings
 from django.core import signals
+from django.core.exceptions import RemovedInDjango19Warning
 from django.core.handlers import base
 from django.core.urlresolvers import set_script_prefix
 from django.utils import datastructures
@@ -118,7 +119,7 @@ class WSGIRequest(http.HttpRequest):
 
     def _get_request(self):
         warnings.warn('`request.REQUEST` is deprecated, use `request.GET` or '
-                      '`request.POST` instead.', PendingDeprecationWarning, 2)
+                      '`request.POST` instead.', RemovedInDjango19Warning, 2)
         if not hasattr(self, '_request'):
             self._request = datastructures.MergeDict(self.POST, self.GET)
         return self._request

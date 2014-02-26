@@ -1,6 +1,7 @@
 import copy
 import inspect
 
+from django.core.exceptions import RemovedInDjango18Warning
 from django.db import router
 from django.db.models.query import QuerySet
 from django.db.models import signals
@@ -54,8 +55,8 @@ signals.class_prepared.connect(ensure_default_manager)
 
 class RenameManagerMethods(RenameMethodsBase):
     renamed_methods = (
-        ('get_query_set', 'get_queryset', DeprecationWarning),
-        ('get_prefetch_query_set', 'get_prefetch_queryset', DeprecationWarning),
+        ('get_query_set', 'get_queryset', RemovedInDjango18Warning),
+        ('get_prefetch_query_set', 'get_prefetch_queryset', RemovedInDjango18Warning),
     )
 
 

@@ -10,6 +10,7 @@ from threading import local
 import warnings
 
 from django.apps import apps
+from django.core.exceptions import RemovedInDjango19Warning
 from django.dispatch import receiver
 from django.test.signals import setting_changed
 from django.utils.encoding import force_str, force_text
@@ -213,7 +214,7 @@ def activate(language):
         msg = ("The use of the language code '%s' is deprecated. "
                "Please use the '%s' translation instead.")
         warnings.warn(msg % (language, _DJANGO_DEPRECATED_LOCALES[language]),
-                      PendingDeprecationWarning, stacklevel=2)
+                      RemovedInDjango19Warning, stacklevel=2)
     _active.value = translation(language)
 
 

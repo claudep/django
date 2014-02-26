@@ -17,6 +17,7 @@ import warnings
 
 from django import template
 from django.core import urlresolvers
+from django.core.exceptions import RemovedInDjango18Warning, RemovedInDjango19Warning
 from django.template import (base as template_base, loader, Context,
     RequestContext, Template, TemplateSyntaxError)
 from django.template.loaders import app_directories, filesystem, cached
@@ -613,9 +614,9 @@ class TemplateTests(TestCase):
                                 try:
                                     with warnings.catch_warnings():
                                         # Ignore deprecations of the old syntax of the 'cycle' and 'firstof' tags.
-                                        warnings.filterwarnings("ignore", category=DeprecationWarning, module='django.template.base')
+                                        warnings.filterwarnings("ignore", category=RemovedInDjango18Warning, module='django.template.base')
                                         # Ignore pending deprecations of loading 'ssi' and 'url' tags from future.
-                                        warnings.filterwarnings("ignore", category=PendingDeprecationWarning, module='django.templatetags.future')
+                                        warnings.filterwarnings("ignore", category=RemovedInDjango19Warning, module='django.templatetags.future')
                                         test_template = loader.get_template(name)
                                 except ShouldNotExecuteException:
                                     failures.append("Template test (Cached='%s', TEMPLATE_STRING_IF_INVALID='%s', TEMPLATE_DEBUG=%s): %s -- FAILED. Template loading invoked method that shouldn't have been invoked." % (is_cached, invalid_str, template_debug, name))

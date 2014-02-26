@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 import warnings
 from unittest import expectedFailure
 
-from django.core.exceptions import ImproperlyConfigured
+from django.core.exceptions import ImproperlyConfigured, RemovedInDjango18Warning
 from django.core.urlresolvers import reverse
 from django import forms
 from django.test import TestCase
@@ -152,7 +152,7 @@ class CreateViewTests(TestCase):
     def test_create_view_all_fields(self):
 
         with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always", DeprecationWarning)
+            warnings.simplefilter("always", RemovedInDjango18Warning)
 
             class MyCreateView(CreateView):
                 model = Author
@@ -165,7 +165,7 @@ class CreateViewTests(TestCase):
     def test_create_view_without_explicit_fields(self):
 
         with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always", DeprecationWarning)
+            warnings.simplefilter("always", RemovedInDjango18Warning)
 
             class MyCreateView(CreateView):
                 model = Author
@@ -176,7 +176,7 @@ class CreateViewTests(TestCase):
                              ['name', 'slug'])
 
         # but with a warning:
-        self.assertEqual(w[0].category, DeprecationWarning)
+        self.assertEqual(w[0].category, RemovedInDjango18Warning)
 
 
 class UpdateViewTests(TestCase):

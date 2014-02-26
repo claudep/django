@@ -2,6 +2,7 @@ from operator import attrgetter
 
 from django.apps import apps
 from django.core import checks
+from django.core.exceptions import RemovedInDjango18Warning
 from django.db import connection, connections, router, transaction
 from django.db.backends import utils
 from django.db.models import signals, Q
@@ -348,8 +349,8 @@ class RelatedField(Field):
 
 class RenameRelatedObjectDescriptorMethods(RenameMethodsBase):
     renamed_methods = (
-        ('get_query_set', 'get_queryset', DeprecationWarning),
-        ('get_prefetch_query_set', 'get_prefetch_queryset', DeprecationWarning),
+        ('get_query_set', 'get_queryset', RemovedInDjango18Warning),
+        ('get_prefetch_query_set', 'get_prefetch_queryset', RemovedInDjango18Warning),
     )
 
 

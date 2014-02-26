@@ -19,7 +19,7 @@ from django.conf import settings
 from django.core import signals
 from django.core.cache.backends.base import (
     InvalidCacheBackendError, CacheKeyWarning, BaseCache)
-from django.core.exceptions import ImproperlyConfigured
+from django.core.exceptions import ImproperlyConfigured, RemovedInDjango19Warning
 from django.utils.module_loading import import_string
 
 
@@ -52,7 +52,7 @@ def get_cache(backend, **kwargs):
 
     """
     warnings.warn("'get_cache' is deprecated in favor of 'caches'.",
-                  PendingDeprecationWarning, stacklevel=2)
+                  RemovedInDjango19Warning, stacklevel=2)
     cache = _create_cache(backend, **kwargs)
     # Some caches -- python-memcached in particular -- need to do a cleanup at the
     # end of a request cycle. If not implemented in a particular backend

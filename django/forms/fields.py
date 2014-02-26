@@ -14,7 +14,7 @@ from decimal import Decimal, DecimalException
 from io import BytesIO
 
 from django.core import validators
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError, RemovedInDjango19Warning
 from django.forms.utils import from_current_timezone, to_current_timezone
 from django.forms.widgets import (
     TextInput, NumberInput, EmailInput, URLInput, HiddenInput,
@@ -502,7 +502,7 @@ class DateTimeField(BaseTemporalField):
             warnings.warn(
                 'Using SplitDateTimeWidget with DateTimeField is deprecated. '
                 'Use SplitDateTimeField instead.',
-                PendingDeprecationWarning, stacklevel=2)
+                RemovedInDjango19Warning, stacklevel=2)
             if len(value) != 2:
                 raise ValidationError(self.error_messages['invalid'], code='invalid')
             if value[0] in self.empty_values and value[1] in self.empty_values:
@@ -1169,7 +1169,7 @@ class IPAddressField(CharField):
 
     def __init__(self, *args, **kwargs):
         warnings.warn("IPAddressField has been deprecated. Use GenericIPAddressField instead.",
-                      PendingDeprecationWarning)
+                      RemovedInDjango19Warning)
         super(IPAddressField, self).__init__(*args, **kwargs)
 
     def to_python(self, value):

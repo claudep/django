@@ -15,7 +15,7 @@ from optparse import make_option, OptionParser
 
 import django
 from django.core import checks
-from django.core.exceptions import ImproperlyConfigured
+from django.core.exceptions import ImproperlyConfigured, RemovedInDjango19Warning
 from django.core.management.color import color_style, no_style
 from django.utils.encoding import force_str
 
@@ -219,7 +219,7 @@ class BaseCommand(object):
             warnings.warn(
                 '"requires_model_validation" is deprecated '
                 'in favour of "requires_system_checks".',
-                PendingDeprecationWarning)
+                RemovedInDjango19Warning)
         if has_old_option and has_new_option:
             raise ImproperlyConfigured(
                 'Command %s defines both "requires_model_validation" '
@@ -467,7 +467,7 @@ class AppCommand(BaseCommand):
             warnings.warn(
                 "AppCommand.handle_app() is superseded by "
                 "AppCommand.handle_app_config().",
-                PendingDeprecationWarning, stacklevel=2)
+                RemovedInDjango19Warning, stacklevel=2)
             if app_config.models_module is None:
                 raise CommandError(
                     "AppCommand cannot handle app '%s' in legacy mode "

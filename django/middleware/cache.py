@@ -47,6 +47,7 @@ import warnings
 
 from django.conf import settings
 from django.core.cache import caches, DEFAULT_CACHE_ALIAS
+from django.core.exceptions import RemovedInDjango18Warning
 from django.utils.cache import get_cache_key, learn_cache_key, patch_response_headers, get_max_age
 
 
@@ -194,6 +195,6 @@ class CacheMiddleware(UpdateCacheMiddleware, FetchFromCacheMiddleware):
 
         if self.cache_anonymous_only:
             msg = "CACHE_MIDDLEWARE_ANONYMOUS_ONLY has been deprecated and will be removed in Django 1.8."
-            warnings.warn(msg, DeprecationWarning, stacklevel=1)
+            warnings.warn(msg, RemovedInDjango18Warning, stacklevel=1)
 
         self.cache = caches[self.cache_alias]

@@ -8,7 +8,7 @@ import pickle
 import unittest
 import warnings
 
-from django.core.exceptions import SuspiciousOperation
+from django.core.exceptions import SuspiciousOperation, RemovedInDjango18Warning
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core.signals import request_finished
 from django.db import close_old_connections
@@ -561,7 +561,7 @@ class FileCloseTests(TestCase):
         r = HttpResponse(file1)
         self.assertFalse(file1.closed)
         with warnings.catch_warnings():
-            warnings.simplefilter("ignore", DeprecationWarning)
+            warnings.simplefilter("ignore", RemovedInDjango18Warning)
             list(r)
         self.assertFalse(file1.closed)
         r.close()

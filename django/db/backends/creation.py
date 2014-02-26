@@ -4,6 +4,7 @@ import time
 import warnings
 
 from django.conf import settings
+from django.core.exceptions import RemovedInDjango18Warning
 from django.db.utils import load_backend
 from django.utils.encoding import force_bytes
 from django.utils.functional import cached_property
@@ -474,7 +475,7 @@ class BaseDatabaseCreation(object):
         """
         warnings.warn(
             "set_autocommit was moved from BaseDatabaseCreation to "
-            "BaseDatabaseWrapper.", DeprecationWarning, stacklevel=2)
+            "BaseDatabaseWrapper.", RemovedInDjango18Warning, stacklevel=2)
         return self.connection.set_autocommit(True)
 
     def sql_table_creation_suffix(self):
