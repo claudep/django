@@ -1,7 +1,7 @@
 import warnings
 
 from django.conf.urls import patterns
-from django.core.exceptions import RemovedInDjango18Warning
+from django.utils.deprecation import RemovedInDjango18Warning
 
 warnings.warn("django.conf.urls.shortcut will be removed in Django 1.8.",
     RemovedInDjango18Warning)

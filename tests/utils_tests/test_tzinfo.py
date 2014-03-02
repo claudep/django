@@ -6,8 +6,9 @@ import time
 import unittest
 import warnings
 
-from django.core.exceptions import RemovedInDjango19Warning
 from django.test.utils import IgnorePendingDeprecationWarningsMixin
+from django.utils.deprecation import RemovedInDjango19Warning
+
 
 # Swallow the import-time warning to test the deprecated implementation.
 with warnings.catch_warnings():

@@ -1,25 +1,25 @@
 from contextlib import contextmanager
+from functools import wraps
 import logging
 import re
 import sys
 import time
 from unittest import skipUnless
 import warnings
-from functools import wraps
 from xml.dom.minidom import parseString, Node
 
 from django.apps import apps
 from django.conf import settings, UserSettingsHolder
 from django.core import mail
-from django.core.exceptions import RemovedInDjango18Warning, RemovedInDjango19Warning
 from django.core.signals import request_started
 from django.db import reset_queries
 from django.http import request
 from django.template import Template, loader, TemplateDoesNotExist
 from django.template.loaders import cached
 from django.test.signals import template_rendered, setting_changed
-from django.utils.encoding import force_str
 from django.utils import six
+from django.utils.deprecation import RemovedInDjango18Warning, RemovedInDjango19Warning
+from django.utils.encoding import force_str
 from django.utils.translation import deactivate
 
 
@@ -458,7 +458,6 @@ class CaptureQueriesContext(object):
 
 
 class IgnoreDeprecationWarningsMixin(object):
-
     warning_classes = [RemovedInDjango18Warning]
 
     def setUp(self):
@@ -474,12 +473,10 @@ class IgnoreDeprecationWarningsMixin(object):
 
 
 class IgnorePendingDeprecationWarningsMixin(IgnoreDeprecationWarningsMixin):
-
         warning_classes = [RemovedInDjango19Warning]
 
 
 class IgnoreAllDeprecationWarningsMixin(IgnoreDeprecationWarningsMixin):
-
         warning_classes = [RemovedInDjango19Warning, RemovedInDjango18Warning]
 
 

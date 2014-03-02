@@ -6,10 +6,11 @@ import unittest
 import warnings
 from zipimport import zipimporter
 
-from django.core.exceptions import ImproperlyConfigured, RemovedInDjango19Warning
+from django.core.exceptions import ImproperlyConfigured
 from django.test import SimpleTestCase, modify_settings
 from django.test.utils import IgnorePendingDeprecationWarningsMixin, extend_sys_path
 from django.utils import six
+from django.utils.deprecation import RemovedInDjango19Warning
 from django.utils.module_loading import (autodiscover_modules, import_by_path, import_string,
                                          module_has_submodule)
 from django.utils._os import upath

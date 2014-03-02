@@ -11,9 +11,9 @@ import warnings
 
 import django
 from django import contrib
-from django.core.exceptions import RemovedInDjango18Warning, RemovedInDjango19Warning
-from django.utils._os import upath
 from django.utils import six
+from django.utils._os import upath
+from django.utils.deprecation import RemovedInDjango18Warning, RemovedInDjango19Warning
 
 
 warnings.simplefilter("default", RemovedInDjango19Warning)

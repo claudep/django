@@ -1,5 +1,6 @@
 import warnings
-from django.core.exceptions import RemovedInDjango19Warning
+
+from django.utils.deprecation import RemovedInDjango19Warning
 
 warnings.warn(
     "The django.db.backends.util module has been renamed. "

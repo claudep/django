@@ -12,15 +12,14 @@ Managed transactions don't do those commits, but will need some kind of manual
 or implicit commits or rollbacks.
 """
 
+from functools import wraps
 import warnings
 
-from functools import wraps
-
-from django.core.exceptions import RemovedInDjango18Warning
 from django.db import (
     connections, DEFAULT_DB_ALIAS,
     DatabaseError, ProgrammingError)
 from django.utils.decorators import available_attrs
+from django.utils.deprecation import RemovedInDjango18Warning
 
 
 class TransactionManagementError(ProgrammingError):

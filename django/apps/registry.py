@@ -4,8 +4,9 @@ import sys
 import threading
 import warnings
 
-from django.core.exceptions import ImproperlyConfigured, RemovedInDjango19Warning
+from django.core.exceptions import ImproperlyConfigured
 from django.utils import lru_cache
+from django.utils.deprecation import RemovedInDjango19Warning
 from django.utils._os import upath
 
 from .config import AppConfig

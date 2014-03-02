@@ -11,8 +11,7 @@ import django.db.models.manager  # NOQA: Imported to register signal handler.
 from django.conf import settings
 from django.core import checks
 from django.core.exceptions import (ObjectDoesNotExist,
-    MultipleObjectsReturned, FieldError, ValidationError, NON_FIELD_ERRORS,
-    RemovedInDjango19Warning)
+    MultipleObjectsReturned, FieldError, ValidationError, NON_FIELD_ERRORS)
 from django.db.models.fields import AutoField, FieldDoesNotExist
 from django.db.models.fields.related import (ForeignObjectRel, ManyToOneRel,
     OneToOneField, add_lazy_relation)
@@ -23,12 +22,13 @@ from django.db.models.query_utils import DeferredAttribute, deferred_class_facto
 from django.db.models.deletion import Collector
 from django.db.models.options import Options
 from django.db.models import signals
-from django.utils.translation import ugettext_lazy as _
-from django.utils.functional import curry
-from django.utils.encoding import force_str, force_text
 from django.utils import six
+from django.utils.deprecation import RemovedInDjango19Warning
+from django.utils.encoding import force_str, force_text
+from django.utils.functional import curry
 from django.utils.six.moves import zip
 from django.utils.text import get_text_list, capfirst
+from django.utils.translation import ugettext_lazy as _
 
 
 def subclass_exception(name, parents, module, attached_to=None):

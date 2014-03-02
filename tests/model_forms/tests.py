@@ -1,21 +1,23 @@
 from __future__ import unicode_literals
 
 import datetime
-import os
 from decimal import Decimal
+import os
 from unittest import skipUnless
 import warnings
 
 from django import forms
-from django.core.exceptions import FieldError, NON_FIELD_ERRORS, RemovedInDjango18Warning
+from django.core.exceptions import FieldError, NON_FIELD_ERRORS
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.validators import ValidationError
 from django.db import connection
 from django.db.models.query import EmptyQuerySet
 from django.forms.models import model_to_dict
-from django.utils._os import upath
 from django.test import TestCase, skipUnlessDBFeature
 from django.utils import six
+from django.utils.deprecation import RemovedInDjango18Warning
+from django.utils._os import upath
+
 
 from .models import (Article, ArticleStatus, BetterWriter, BigInt, Book,
     Category, CommaSeparatedInteger, CustomFieldForExclusionModel, DerivedBook,

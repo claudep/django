@@ -12,10 +12,11 @@ from django.contrib.admin.validation import ModelAdminValidator
 from django.contrib.admin import (SimpleListFilter,
      BooleanFieldListFilter)
 from django.core.checks import Error
-from django.core.exceptions import ImproperlyConfigured, RemovedInDjango19Warning
+from django.core.exceptions import ImproperlyConfigured
 from django.forms.models import BaseModelFormSet
 from django.forms.widgets import Select
 from django.test import TestCase
+from django.utils.deprecation import RemovedInDjango19Warning
 
 from .models import Band, Concert, ValidationTestModel, ValidationTestInlineModel
 

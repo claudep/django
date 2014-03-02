@@ -9,15 +9,16 @@ from collections import OrderedDict
 import warnings
 
 from django.core.exceptions import (
-    ValidationError, NON_FIELD_ERRORS, FieldError, RemovedInDjango18Warning)
+    ValidationError, NON_FIELD_ERRORS, FieldError)
 from django.forms.fields import Field, ChoiceField
 from django.forms.forms import DeclarativeFieldsMetaclass, BaseForm
 from django.forms.formsets import BaseFormSet, formset_factory
 from django.forms.utils import ErrorList
 from django.forms.widgets import (SelectMultiple, HiddenInput,
     MultipleHiddenInput, CheckboxSelectMultiple)
-from django.utils.encoding import smart_text, force_text
 from django.utils import six
+from django.utils.deprecation import RemovedInDjango18Warning
+from django.utils.encoding import smart_text, force_text
 from django.utils.text import get_text_list, capfirst
 from django.utils.translation import ugettext_lazy as _, ugettext, string_concat
 

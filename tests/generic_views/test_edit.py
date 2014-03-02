@@ -3,11 +3,12 @@ from __future__ import unicode_literals
 import warnings
 from unittest import expectedFailure
 
-from django.core.exceptions import ImproperlyConfigured, RemovedInDjango18Warning
-from django.core.urlresolvers import reverse
 from django import forms
+from django.core.exceptions import ImproperlyConfigured
+from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.test.client import RequestFactory
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.views.generic.base import View
 from django.views.generic.edit import FormMixin, ModelFormMixin, CreateView
 

@@ -5,12 +5,12 @@ from threading import local
 import warnings
 
 from django.conf import settings
-from django.core.exceptions import (
-    ImproperlyConfigured, RemovedInDjango18Warning, RemovedInDjango19Warning)
+from django.core.exceptions import ImproperlyConfigured
+from django.utils import six
+from django.utils.deprecation import RemovedInDjango18Warning, RemovedInDjango19Warning
 from django.utils.functional import cached_property
 from django.utils.module_loading import import_string
 from django.utils._os import upath
-from django.utils import six
 
 
 DEFAULT_DB_ALIAS = 'default'

@@ -1,9 +1,9 @@
+from collections import OrderedDict
 import copy
 import warnings
-from collections import OrderedDict
 
-from django.core.exceptions import RemovedInDjango19Warning
 from django.utils import six
+from django.utils.deprecation import RemovedInDjango19Warning
 
 
 class MergeDict(object):

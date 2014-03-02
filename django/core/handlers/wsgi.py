@@ -11,13 +11,12 @@ import warnings
 from django import http
 from django.conf import settings
 from django.core import signals
-from django.core.exceptions import RemovedInDjango19Warning
 from django.core.handlers import base
 from django.core.urlresolvers import set_script_prefix
-from django.utils import datastructures
+from django.utils import datastructures, six
+from django.utils.deprecation import RemovedInDjango19Warning
 from django.utils.encoding import force_str, force_text
 from django.utils.functional import cached_property
-from django.utils import six
 
 # For backwards compatibility -- lots of code uses this in the wild!
 from django.http.response import REASON_PHRASES as STATUS_CODE_TEXT  # NOQA

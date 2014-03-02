@@ -1,7 +1,8 @@
 import warnings
 
 from django.apps import apps
-from django.core.exceptions import RemovedInDjango19Warning
+from django.utils.deprecation import RemovedInDjango19Warning
+
 
 warnings.warn(
     "The utilities in django.db.models.loading are deprecated "

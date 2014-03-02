@@ -7,8 +7,9 @@ import os
 import sys
 import warnings
 
-from django.core.exceptions import ImproperlyConfigured, RemovedInDjango19Warning
+from django.core.exceptions import ImproperlyConfigured
 from django.utils import six
+from django.utils.deprecation import RemovedInDjango19Warning
 
 
 def import_string(dotted_path):

@@ -4,13 +4,13 @@ import re
 import warnings
 
 from django.conf import settings
-from django.core.exceptions import RemovedInDjango18Warning
 from django.core.mail import mail_managers
 from django.core import urlresolvers
 from django import http
+from django.utils import six
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.utils.encoding import force_text
 from django.utils.http import urlquote
-from django.utils import six
 
 
 logger = logging.getLogger('django.request')

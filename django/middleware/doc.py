@@ -2,7 +2,7 @@
 
 import warnings
 
-from django.core.exceptions import RemovedInDjango18Warning
+from django.utils.deprecation import RemovedInDjango18Warning
 
 warnings.warn(__doc__, RemovedInDjango18Warning, stacklevel=2)
 

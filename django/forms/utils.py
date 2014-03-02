@@ -5,12 +5,11 @@ import sys
 import warnings
 
 from django.conf import settings
-from django.core.exceptions import RemovedInDjango18Warning
-from django.utils.html import format_html, format_html_join
+from django.utils import six, timezone
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.utils.encoding import force_text, python_2_unicode_compatible
-from django.utils import timezone
+from django.utils.html import format_html, format_html_join
 from django.utils.translation import ugettext_lazy as _
-from django.utils import six
 
 # Import ValidationError so that it can be imported from this
 # module to maintain backwards compatibility.

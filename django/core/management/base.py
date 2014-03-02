@@ -7,16 +7,16 @@ Base classes for writing management commands (named commands which can
 be executed through ``django-admin.py`` or ``manage.py``).
 """
 
+from optparse import make_option, OptionParser
 import os
 import sys
 import warnings
 
-from optparse import make_option, OptionParser
-
 import django
 from django.core import checks
-from django.core.exceptions import ImproperlyConfigured, RemovedInDjango19Warning
+from django.core.exceptions import ImproperlyConfigured
 from django.core.management.color import color_style, no_style
+from django.utils.deprecation import RemovedInDjango19Warning
 from django.utils.encoding import force_str
 
 

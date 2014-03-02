@@ -1,13 +1,12 @@
 import copy
 import inspect
 
-from django.core.exceptions import RemovedInDjango18Warning
 from django.db import router
 from django.db.models.query import QuerySet
 from django.db.models import signals
 from django.db.models.fields import FieldDoesNotExist
 from django.utils import six
-from django.utils.deprecation import RenameMethodsBase
+from django.utils.deprecation import RenameMethodsBase, RemovedInDjango18Warning
 from django.utils.encoding import python_2_unicode_compatible
 
 

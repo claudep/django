@@ -8,7 +8,7 @@ import pickle
 import unittest
 import warnings
 
-from django.core.exceptions import SuspiciousOperation, RemovedInDjango18Warning
+from django.core.exceptions import SuspiciousOperation
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core.signals import request_finished
 from django.db import close_old_connections
@@ -18,10 +18,11 @@ from django.http import (QueryDict, HttpResponse, HttpResponseRedirect,
                          SimpleCookie, BadHeaderError, JsonResponse,
                          parse_cookie)
 from django.test import TestCase
+from django.utils import six
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.utils.encoding import smart_str, force_text
 from django.utils.functional import lazy
 from django.utils._os import upath
-from django.utils import six
 
 lazystr = lazy(force_text, six.text_type)
 

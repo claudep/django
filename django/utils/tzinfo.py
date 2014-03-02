@@ -6,7 +6,7 @@ from datetime import timedelta, tzinfo
 import time
 import warnings
 
-from django.core.exceptions import RemovedInDjango19Warning
+from django.utils.deprecation import RemovedInDjango19Warning
 from django.utils.encoding import force_str, force_text, DEFAULT_LOCALE_ENCODING
 
 warnings.warn(

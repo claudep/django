@@ -2,21 +2,21 @@
 from __future__ import unicode_literals
 
 from collections import OrderedDict
+import gettext as gettext_module
 import os
 import re
 import sys
-import gettext as gettext_module
 from threading import local
 import warnings
 
 from django.apps import apps
-from django.core.exceptions import RemovedInDjango19Warning
 from django.dispatch import receiver
 from django.test.signals import setting_changed
+from django.utils import six, lru_cache
+from django.utils.deprecation import RemovedInDjango19Warning
 from django.utils.encoding import force_str, force_text
 from django.utils._os import upath
 from django.utils.safestring import mark_safe, SafeData
-from django.utils import six, lru_cache
 from django.utils.six import StringIO
 from django.utils.translation import TranslatorCommentWarning, trim_whitespace, LANGUAGE_SESSION_KEY
 

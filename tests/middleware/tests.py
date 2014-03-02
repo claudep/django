@@ -10,7 +10,6 @@ import warnings
 
 from django.conf import settings
 from django.core import mail
-from django.core.exceptions import RemovedInDjango18Warning
 from django.db import (transaction, connections, DEFAULT_DB_ALIAS,
                        IntegrityError)
 from django.http import HttpRequest, HttpResponse, StreamingHttpResponse
@@ -22,6 +21,7 @@ from django.middleware.transaction import TransactionMiddleware
 from django.test import TransactionTestCase, TestCase, RequestFactory, override_settings
 from django.test.utils import IgnoreDeprecationWarningsMixin
 from django.utils import six
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.utils.encoding import force_str
 from django.utils.six.moves import xrange
 

@@ -7,10 +7,10 @@ import warnings
 
 from django.apps import apps
 from django.conf import settings
-from django.core.exceptions import RemovedInDjango19Warning
 from django.core.management.base import CommandError
 from django.db import models, router
 from django.utils import six
+from django.utils.deprecation import RemovedInDjango19Warning
 
 
 def sql_create(app_config, style, connection):
