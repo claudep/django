@@ -2,7 +2,7 @@ from functools import wraps
 import sys
 import warnings
 
-from django.core.exceptions import ObjectDoesNotExist, ImproperlyConfigured # NOQA
+from django.core.exceptions import ObjectDoesNotExist, ImproperlyConfigured  # NOQA
 from django.db.models.query import Q, QuerySet, Prefetch  # NOQA
 from django.db.models.expressions import F  # NOQA
 from django.db.models.manager import Manager  # NOQA
@@ -19,7 +19,6 @@ from django.db.models.deletion import (  # NOQA
     CASCADE, PROTECT, SET, SET_NULL, SET_DEFAULT, DO_NOTHING, ProtectedError)
 from django.db.models.lookups import Lookup, Transform  # NOQA
 from django.db.models import signals  # NOQA
-from django.utils.deprecation import RemovedInDjango18Warning
 
 
 def permalink(func):
