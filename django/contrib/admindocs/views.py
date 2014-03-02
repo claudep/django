@@ -10,13 +10,14 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.admin.views.decorators import staff_member_required
 from django.db import models
-from django.core.exceptions import ViewDoesNotExist, RemovedInDjango18Warning
+from django.core.exceptions import ViewDoesNotExist
 from django.http import Http404
 from django.core import urlresolvers
 from django.contrib.admindocs import utils
+from django.utils import six
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.utils.decorators import method_decorator
 from django.utils._os import upath
-from django.utils import six
 from django.utils.translation import ugettext as _
 from django.views.generic import TemplateView
 

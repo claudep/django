@@ -47,8 +47,8 @@ import warnings
 
 from django.conf import settings
 from django.core.cache import caches, DEFAULT_CACHE_ALIAS
-from django.core.exceptions import RemovedInDjango18Warning
 from django.utils.cache import get_cache_key, learn_cache_key, patch_response_headers, get_max_age
+from django.utils.deprecation import RemovedInDjango18Warning
 
 
 class UpdateCacheMiddleware(object):

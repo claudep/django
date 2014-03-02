@@ -9,7 +9,6 @@ from itertools import groupby, cycle as itertools_cycle
 import warnings
 
 from django.conf import settings
-from django.core.exceptions import RemovedInDjango18Warning
 from django.template.base import (Node, NodeList, Template, Context, Library,
     TemplateSyntaxError, VariableDoesNotExist, InvalidTemplateLibrary,
     BLOCK_TAG_START, BLOCK_TAG_END, VARIABLE_TAG_START, VARIABLE_TAG_END,
@@ -18,11 +17,11 @@ from django.template.base import (Node, NodeList, Template, Context, Library,
     render_value_in_context)
 from django.template.smartif import IfParser, Literal
 from django.template.defaultfilters import date
+from django.utils import six, timezone
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.utils.encoding import force_text, smart_text
 from django.utils.safestring import mark_safe
 from django.utils.html import format_html
-from django.utils import six
-from django.utils import timezone
 
 register = Library()
 

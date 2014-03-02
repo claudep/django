@@ -2,14 +2,13 @@ from collections import OrderedDict
 import sys
 import warnings
 
-from django.core.exceptions import (SuspiciousOperation, ImproperlyConfigured,
-    RemovedInDjango18Warning)
+from django.core.exceptions import SuspiciousOperation, ImproperlyConfigured
 from django.core.paginator import InvalidPage
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.fields import FieldDoesNotExist
 from django.utils import six
-from django.utils.deprecation import RenameMethodsBase
+from django.utils.deprecation import RenameMethodsBase, RemovedInDjango18Warning
 from django.utils.encoding import force_text
 from django.utils.translation import ugettext, ugettext_lazy
 from django.utils.http import urlencode

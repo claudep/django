@@ -19,7 +19,8 @@ from django.conf import settings
 from django.core import signals
 from django.core.cache.backends.base import (
     InvalidCacheBackendError, CacheKeyWarning, BaseCache)
-from django.core.exceptions import ImproperlyConfigured, RemovedInDjango19Warning
+from django.core.exceptions import ImproperlyConfigured
+from django.utils.deprecation import RemovedInDjango19Warning
 from django.utils.module_loading import import_string
 
 

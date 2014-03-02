@@ -19,8 +19,7 @@ from django.contrib.admin.templatetags.admin_urls import add_preserved_filters
 from django.contrib.auth import get_permission_codename
 from django.core import checks
 from django.core.exceptions import (PermissionDenied, ValidationError,
-    FieldError, ImproperlyConfigured, RemovedInDjango18Warning,
-    RemovedInDjango19Warning)
+    FieldError, ImproperlyConfigured)
 from django.core.paginator import Paginator
 from django.core.urlresolvers import reverse
 from django.db import models, transaction, router
@@ -37,9 +36,9 @@ from django.shortcuts import get_object_or_404
 from django.template.response import SimpleTemplateResponse, TemplateResponse
 from django.utils import six
 from django.utils.decorators import method_decorator
-from django.utils.deprecation import RenameMethodsBase
-from django.utils.encoding import force_text
-from django.utils.encoding import python_2_unicode_compatible
+from django.utils.deprecation import (RenameMethodsBase,
+    RemovedInDjango18Warning, RemovedInDjango19Warning)
+from django.utils.encoding import force_text, python_2_unicode_compatible
 from django.utils.html import escape, escapejs
 from django.utils.http import urlencode
 from django.utils.text import capfirst, get_text_list

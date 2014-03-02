@@ -6,15 +6,15 @@ from __future__ import unicode_literals
 
 import copy
 import datetime
+from decimal import Decimal, DecimalException
+from io import BytesIO
 import os
 import re
 import sys
 import warnings
-from decimal import Decimal, DecimalException
-from io import BytesIO
 
 from django.core import validators
-from django.core.exceptions import ValidationError, RemovedInDjango19Warning
+from django.core.exceptions import ValidationError
 from django.forms.utils import from_current_timezone, to_current_timezone
 from django.forms.widgets import (
     TextInput, NumberInput, EmailInput, URLInput, HiddenInput,
@@ -22,10 +22,10 @@ from django.forms.widgets import (
     NullBooleanSelect, SelectMultiple, DateInput, DateTimeInput, TimeInput,
     SplitDateTimeWidget, SplitHiddenDateTimeWidget, FILE_INPUT_CONTRADICTION
 )
-from django.utils import formats
+from django.utils import formats, six
 from django.utils.encoding import smart_text, force_str, force_text
 from django.utils.ipv6 import clean_ipv6_address
-from django.utils import six
+from django.utils.deprecation import RemovedInDjango19Warning
 from django.utils.six.moves.urllib.parse import urlsplit, urlunsplit
 from django.utils.translation import ugettext_lazy as _, ungettext_lazy
 

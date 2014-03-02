@@ -3,9 +3,9 @@ Module for abstract serializer/unserializer base classes.
 """
 import warnings
 
-from django.core.exceptions import RemovedInDjango19Warning
 from django.db import models
 from django.utils import six
+from django.utils.deprecation import RemovedInDjango19Warning
 
 
 class SerializerDoesNotExist(KeyError):

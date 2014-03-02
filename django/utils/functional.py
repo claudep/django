@@ -4,8 +4,8 @@ from functools import wraps
 import sys
 import warnings
 
-from django.core.exceptions import RemovedInDjango19Warning
 from django.utils import six
+from django.utils.deprecation import RemovedInDjango19Warning
 from django.utils.six.moves import copyreg
 
 

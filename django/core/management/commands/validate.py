@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 
 import warnings
 
-from django.core.exceptions import RemovedInDjango19Warning
 from django.core.management.commands.check import Command as CheckCommand
+from django.utils.deprecation import RemovedInDjango19Warning
 
 
 class Command(CheckCommand):

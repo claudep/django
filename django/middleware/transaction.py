@@ -1,7 +1,8 @@
 import warnings
 
-from django.core.exceptions import MiddlewareNotUsed, RemovedInDjango18Warning
+from django.core.exceptions import MiddlewareNotUsed
 from django.db import connection, transaction
+from django.utils.deprecation import RemovedInDjango18Warning
 
 
 class TransactionMiddleware(object):

@@ -10,13 +10,13 @@ import unittest as real_unittest
 import warnings
 
 from django.apps import apps
-from django.core.exceptions import RemovedInDjango18Warning
 from django.test import _doctest as doctest
 from django.test import runner
 from django.test.utils import compare_xml, strip_quotes
 # django.utils.unittest is deprecated, but so is django.test.simple,
 # and the latter will be removed before the former.
 from django.utils import unittest
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.utils.module_loading import module_has_submodule
 
 __all__ = ('DjangoTestSuiteRunner',)

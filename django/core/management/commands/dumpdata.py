@@ -4,10 +4,10 @@ from collections import OrderedDict
 from optparse import make_option
 
 from django.apps import apps
-from django.core.exceptions import RemovedInDjango19Warning
-from django.core.management.base import BaseCommand, CommandError
 from django.core import serializers
+from django.core.management.base import BaseCommand, CommandError
 from django.db import router, DEFAULT_DB_ALIAS
+from django.utils.deprecation import RemovedInDjango19Warning
 
 
 class Command(BaseCommand):

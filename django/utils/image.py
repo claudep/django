@@ -74,7 +74,8 @@ from __future__ import unicode_literals
 
 import warnings
 
-from django.core.exceptions import ImproperlyConfigured, RemovedInDjango18Warning
+from django.core.exceptions import ImproperlyConfigured
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.utils.translation import ugettext_lazy as _
 
 

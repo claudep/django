@@ -4,8 +4,8 @@ import time
 import warnings
 
 from django.conf import settings
-from django.core.exceptions import RemovedInDjango18Warning
 from django.db.utils import load_backend
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.utils.encoding import force_bytes
 from django.utils.functional import cached_property
 from django.utils.six.moves import input

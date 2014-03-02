@@ -1,8 +1,8 @@
 from operator import attrgetter
 
+from django import forms
 from django.apps import apps
-from django.core import checks
-from django.core.exceptions import RemovedInDjango18Warning
+from django.core import checks, exceptions
 from django.db import connection, connections, router, transaction
 from django.db.backends import utils
 from django.db.models import signals, Q
@@ -15,11 +15,9 @@ from django.db.models.query import QuerySet
 from django.db.models.sql.datastructures import Col
 from django.utils.encoding import smart_text
 from django.utils import six
-from django.utils.deprecation import RenameMethodsBase
+from django.utils.deprecation import RenameMethodsBase, RemovedInDjango18Warning
 from django.utils.translation import ugettext_lazy as _
 from django.utils.functional import curry, cached_property
-from django.core import exceptions
-from django import forms
 
 RECURSIVE_RELATIONSHIP_CONSTANT = 'self'
 

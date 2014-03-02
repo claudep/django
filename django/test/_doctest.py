@@ -51,7 +51,7 @@ details.
 """
 import warnings
 
-from django.core.exceptions import RemovedInDjango18Warning
+from django.utils.deprecation import RemovedInDjango18Warning
 
 warnings.warn(
     "The django.test._doctest module is deprecated; "

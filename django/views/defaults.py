@@ -1,9 +1,9 @@
 import warnings
 
 from django import http
-from django.core.exceptions import RemovedInDjango18Warning
 from django.template import (Context, RequestContext,
                              loader, Template, TemplateDoesNotExist)
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.views.decorators.csrf import requires_csrf_token
 
 

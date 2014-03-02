@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from base64 import b64decode, b64encode
 import collections
 import copy
 import datetime
 import decimal
+from itertools import tee
 import math
 import warnings
-from base64 import b64decode, b64encode
-from itertools import tee
 
 from django.apps import apps
 from django.db import connection
@@ -17,17 +17,18 @@ from django.db.models.query_utils import QueryWrapper
 from django.conf import settings
 from django import forms
 from django.core import exceptions, validators, checks
+from django.utils import six, timezone
 from django.utils.datastructures import DictWrapper
 from django.utils.dateparse import parse_date, parse_datetime, parse_time
-from django.utils.functional import curry, total_ordering, Promise
-from django.utils.text import capfirst
-from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
+from django.utils.deprecation import RemovedInDjango19Warning
 from django.utils.encoding import (smart_text, force_text, force_bytes,
     python_2_unicode_compatible)
-from django.utils.ipv6 import clean_ipv6_address
-from django.utils import six
+from django.utils.functional import curry, total_ordering, Promise
 from django.utils.itercompat import is_iterable
+from django.utils.ipv6 import clean_ipv6_address
+from django.utils.text import capfirst
+from django.utils.translation import ugettext_lazy as _
+
 
 # Avoid "TypeError: Item in ``from list'' not a string" -- unicode_literals
 # makes these strings unicode
@@ -1616,7 +1617,7 @@ class IPAddressField(Field):
 
     def __init__(self, *args, **kwargs):
         warnings.warn("IPAddressField has been deprecated. Use GenericIPAddressField instead.",
-                      exceptions.RemovedInDjango19Warning)
+                      RemovedInDjango19Warning)
         kwargs['max_length'] = 15
         super(IPAddressField, self).__init__(*args, **kwargs)
 

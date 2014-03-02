@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from collections import defaultdict
 
 from django.core import checks
-from django.core.exceptions import ObjectDoesNotExist, RemovedInDjango18Warning
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import connection
 from django.db import models, router, transaction, DEFAULT_DB_ALIAS
 from django.db.models import signals, FieldDoesNotExist
@@ -13,7 +13,7 @@ from django.db.models.related import PathInfo
 from django.db.models.sql.datastructures import Col
 from django.contrib.contenttypes.models import ContentType
 from django.utils import six
-from django.utils.deprecation import RenameMethodsBase
+from django.utils.deprecation import RenameMethodsBase, RemovedInDjango18Warning
 from django.utils.encoding import smart_text, python_2_unicode_compatible
 
 

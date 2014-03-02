@@ -5,14 +5,7 @@ from functools import reduce
 import operator
 
 from django.utils import six
-
-
-class RemovedInDjango19Warning(PendingDeprecationWarning):
-    pass
-
-
-class RemovedInDjango18Warning(DeprecationWarning):
-    pass
+from django.utils.encoding import force_text
 
 
 class DjangoRuntimeWarning(RuntimeWarning):
@@ -158,7 +151,6 @@ class ValidationError(Exception):
             for field, errors in self.error_dict.items():
                 yield field, list(ValidationError(errors))
         else:
-            from django.utils.encoding import force_text
             for error in self.error_list:
                 message = error.message
                 if error.params:

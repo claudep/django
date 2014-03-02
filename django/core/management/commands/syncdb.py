@@ -1,9 +1,10 @@
 import warnings
 from optparse import make_option
+
 from django.db import DEFAULT_DB_ALIAS
-from django.core.exceptions import RemovedInDjango19Warning
 from django.core.management import call_command
 from django.core.management.base import NoArgsCommand
+from django.utils.deprecation import RemovedInDjango19Warning
 
 
 class Command(NoArgsCommand):

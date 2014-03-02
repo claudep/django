@@ -3,9 +3,8 @@ from django.template.loader import render_to_string
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.contrib import comments
-from django.core.exceptions import RemovedInDjango18Warning
 from django.utils import six
-from django.utils.deprecation import RenameMethodsBase
+from django.utils.deprecation import RenameMethodsBase, RemovedInDjango18Warning
 from django.utils.encoding import smart_text
 
 register = template.Library()

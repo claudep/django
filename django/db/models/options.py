@@ -6,13 +6,13 @@ import warnings
 
 from django.apps import apps
 from django.conf import settings
-from django.core.exceptions import RemovedInDjango18Warning
 from django.db.models.fields.related import ManyToManyRel
 from django.db.models.fields import AutoField, FieldDoesNotExist
 from django.db.models.fields.proxy import OrderWrt
 from django.utils import six
-from django.utils.functional import cached_property
+from django.utils.deprecation import RemovedInDjango18Warning
 from django.utils.encoding import force_text, smart_text, python_2_unicode_compatible
+from django.utils.functional import cached_property
 from django.utils.text import camel_case_to_spaces
 from django.utils.translation import activate, deactivate_all, get_language, string_concat
 

@@ -8,13 +8,12 @@ from itertools import repeat
 import warnings
 
 from django.conf import settings
-from django.core.exceptions import RemovedInDjango19Warning
 from django.db.models.fields import DateTimeField, Field
 from django.db.models.sql.datastructures import EmptyResultSet, Empty
 from django.db.models.sql.aggregates import Aggregate
+from django.utils import timezone, tree
+from django.utils.deprecation import RemovedInDjango19Warning
 from django.utils.six.moves import xrange
-from django.utils import timezone
-from django.utils import tree
 
 
 # Connection types
