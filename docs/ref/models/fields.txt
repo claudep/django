@@ -1846,21 +1846,6 @@ Field API reference
 
         See :ref:`preprocessing-values-before-saving` for usage.
 
-    When a lookup is used on a field, the value may need to be "prepared".
-    Django exposes a method for this:
-
-    .. method:: get_db_prep_lookup(lookup_type, value, connection, prepared=False)
-
-        Similar to :meth:`get_db_prep_value`, but for performing a lookup.
-
-        As with :meth:`get_db_prep_value`, the specific connection that will
-        be used for the query is passed as ``connection``.
-
-    .. versionchanged:: 1.10
-
-        Django used to suggest a ``get_prep_lookup()`` method to prepare values
-        for lookups. This is not needed any longer by current lookups.
-
     Fields often receive their values as a different type, either from
     serialization or from forms.
 

@@ -741,8 +741,7 @@ class Field(RegisterLookupMixin):
         """Returns field's value prepared for interacting with the database
         backend.
 
-        Used by the default implementations of ``get_db_prep_save``and
-        `get_db_prep_lookup```
+        Used by the default implementations of get_db_prep_save().
         """
         if not prepared:
             value = self.get_prep_value(value)
@@ -754,13 +753,6 @@ class Field(RegisterLookupMixin):
         """
         return self.get_db_prep_value(value, connection=connection,
                                       prepared=False)
-
-    def get_db_prep_lookup(self, lookup_type, value, connection,
-                           prepared=False):
-        """
-        Returns field's value prepared for database lookup.
-        """
-        return [value]
 
     def has_default(self):
         """

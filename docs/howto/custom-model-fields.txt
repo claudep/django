@@ -577,9 +577,6 @@ the end. You should also update the model's attribute if you make any changes
 to the value so that code holding references to the model will always see the
 correct value.
 
-For performing database-specific data conversions required by a lookup,
-you can override :meth:`~Field.get_db_prep_lookup`.
-
 .. _specifying-form-field-for-model-field:
 
 Specifying the form field for a model field
